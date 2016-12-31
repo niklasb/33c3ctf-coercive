@@ -1,0 +1,10 @@
+.gdb_history
+peda-*
+.stack-work
+*.hi
+*.o
+/tmp
+/test
+/_git*
+/*.tar.xz
+/coercive

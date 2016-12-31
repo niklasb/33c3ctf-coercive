@@ -1,0 +1,34 @@
+let name = "Air passengers between 1949 and 1960"
+
+heading name
+
+text "Monthly totals of international airline passengers, 1949 to 1960."
+text "Source: https://github.com/vincentarelbundock/Rdatasets/blob/master/csv/datasets/AirPassengers.csv"
+
+-- read data from AirPassengers.csv. Use columns 1 and 2 for x/y
+(air :: [(Double, Double)]) <- readCsv "AirPassengers" "\n" "," 1 2
+
+plot $ do
+  title name
+
+  color $ opaque red
+  dat air
+  legend "Passengers per month"
+  add
+
+
+text "And just 1949:"
+
+let air' = takeWhile ((<= 1950) . fst) air
+
+plot $ do
+  title "Air passengers 1949"
+
+  color $ opaque blue
+  dat air'
+  legend "Passengers per month"
+  add
+
+text "Data sample in tabular representation:"
+
+table "Month" "Passengers" $ take 10 air

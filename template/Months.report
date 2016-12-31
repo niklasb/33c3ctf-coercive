@@ -1,0 +1,10 @@
+heading "An example for labelled data"
+
+text "We even support string fields! Isn't that great?"
+
+-- read data from the file Months.csv. Use columns 0 and 1 for x/y.
+-- This file uses a slightly different format, where rows are separated by "|" and
+-- columns are separated via ";" You can download the file to see the format.
+(months :: [(Int, Text)]) <- readCsv "Months" "|" ";" 0 1
+
+table "Month" "Name" months

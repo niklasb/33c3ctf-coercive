@@ -1,0 +1,30 @@
+heading "ZSH vs BASH aswesomeness"
+
+let zsh = points [(0, 1), (1, 2), (2, 4), (3, 8), (4, 16), (5, 42)]
+let bash = points [(0, 10), (1, 9), (2, 8), (3, 3), (4, -2), (5, -10)]
+
+text "Here we scientifically compare the awesomeness of zsh vs bash for solving tasks of varying complexity."
+text "X axis is complexity of the task, Y axis is awesomeness"
+
+plot $ do
+  title "zsh vs bash"
+
+  dat zsh
+  color $ opaque red
+  legend "zsh"
+  add
+
+  dat bash
+  color $ opaque blue
+  legend "bash"
+  add
+
+text "As we can see, except for the most trivial of tasks (complexity < 3), it is always better to use zsh."
+
+text "Here is the source data so you can evaluate this claim yourself:"
+
+text "zsh:"
+table "Complexity" "Awesomeness"  zsh
+
+text "bash:"
+table "Complexity" "Awesomeness"  bash
